@@ -99,7 +99,7 @@ $dafdos = query("SELECT * FROM daftar_dosen WHERE id=$id");
                 <li class="list-group-item">Pendidikan S2 : <?= $dafdos['s2']; ?></li>
                 <li class="list-group-item">Pendidikan S3 : <?= $dafdos['s3']; ?></li>
                 <li class="list-group-item">
-                    <a href="hapus.php?id=<?= $cmb['id']; ?>" onclick="confirm('apakah anda akan menghapus data ini?');" class="btn btn-danger" role="button">Hapus</a> |
+                    <a href="hapus.php?id=<?= $dafdos['id']; ?>" onclick="confirm('apakah anda akan menghapus data ini?');" class="btn btn-danger" role="button">Hapus</a> |
                     <a href="index.php" class="btn btn-primary" role="button">Kembali</a>
                 </li>
             </ul>

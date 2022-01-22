@@ -4,8 +4,8 @@ date_default_timezone_get("Asia/Jakarta");
 require 'function.php';
 $dafdos = query("SELECT * FROM daftar_dosen");
 
-if (isset($_POST['cari'])) {
-    $dafdos = cari($_POST['keyword']);
+if (isset($_POST['search'])) {
+    $dafdos = search($_POST['kata_kunci']);
 }
 ?>
 
@@ -82,10 +82,12 @@ if (isset($_POST['cari'])) {
             <h3><i class="fas fa-users"> Dosen Fakultas Teknik</i></h3>
             <hr>
 
-            <!--pencarian data-->
-            <form action="" method="POST"></form>
-            <input type="text" id="keyword" size="50" name="keyword" placeholder="masukan keyword" autocomplete="off">
-            <button type="submit" class="btn btn-primary" name="cari">CARI</button>
+            <!-- Pencarian data -->
+            <form action="" method="POST">
+                <input type="text" id="kata_kunci" size="50" name="kata_kunci" placeholder="masukan keyword" autocomplete="off">
+                <button type="submit" class="btn btn-primary" name="search">CARI</button>
+            </form>
+
             <br>
             <hr>
 

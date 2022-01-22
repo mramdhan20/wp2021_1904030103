@@ -83,10 +83,12 @@ if (isset($_POST['cari'])) {
       <h3><i class="fas fa-users"> Daftar Calon Mahasiswa</i></h3>
       <hr>
 
-      <!--pencarian data-->
-      <form action="" method="POST"></form>
-      <input type="text" id="keyword" size="50" name="keyword" placeholder="masukan keyword" autocomplete="off">
-      <button type="submit" class="btn btn-primary" name="cari">CARI</button>
+      <!-- Pencarian data -->
+      <form action="" method="POST">
+        <input type="text" id="keyword" size="50" name="keyword" placeholder="masukan keyword" autocomplete="off">
+        <button type="submit" class="btn btn-primary" name="cari">CARI</button>
+      </form>
+
       <br>
       <hr>
 

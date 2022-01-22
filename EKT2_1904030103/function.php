@@ -29,12 +29,12 @@ function tambah($data)
     $alamat = htmlspecialchars($data['alamat']);
     $jenis_kelamin = htmlspecialchars($data['jenis_kelamin']);
     $agama = htmlspecialchars($data['agama']);
-    $sekolah_asal = htmlspecialchars($data['sekolah_asal']);
+    $sekola_asal = htmlspecialchars($data['sekolah_asal']);
     $foto_maba = htmlspecialchars($data['foto_maba']);
 
     $query = "INSERT INTO calon_mhs
-VALUES
-(null,'$nama','$alamat','$jenis_kelamin','$agama','$sekolah_asal','$foto_maba',);";
+  VALUES
+  (null,'$nama','$alamat','$jenis_kelamin','$agama','$sekola_asal','$foto_maba');";
     mysqli_query($conn, $query);
 
     echo mysqli_error($conn);
@@ -51,7 +51,7 @@ function edit($data)
 {
     global $conn;
 
-    $id = ($data['id']);
+    $id = $data['id'];
     $nama = htmlspecialchars($data['nama']);
     $alamat = htmlspecialchars($data['alamat']);
     $jenis_kelamin = htmlspecialchars($data['jenis_kelamin']);
@@ -59,14 +59,14 @@ function edit($data)
     $sekolah_asal = htmlspecialchars($data['sekolah_asal']);
     $foto_maba = htmlspecialchars($data['foto_maba']);
 
-    $query = "UPDATE calon_mhs SET
-    nama = '$nama',
-    alamat = '$alamat',
-    jenis_kelamin = '$jenis_kelamin',
-    agama = '$agama',
-    sekolah_asal = '$sekolah_asal',
-    foto_maba = '$foto_maba',
-    WHERE id =$id;";
+    $query = "UPDATE  calon_mhs SET
+  nama ='$nama',
+  alamat ='$alamat',
+  jenis_kelamin ='$jenis_kelamin',
+  agama ='$agama',
+  sekolah_asal ='$sekolah_asal',
+  foto_maba ='$foto_maba'
+  WHERE id =$id;";
 
     mysqli_query($conn, $query);
 
@@ -86,4 +86,25 @@ function cari($keyword)
         $rows[] = $row;
     }
     return $rows;
+}
+
+function search($keyword)
+{
+    global $conn;
+
+    $query = "SELECT * FROM daftar_dosen WHERE nama LIKE'%$keyword%'";
+    $result = mysqli_query($conn, $query);
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
+function delete($iid)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM daftar_dosen WHERE id =$iid") or die(mysqli_error($conn));
+    return mysqli_affected_rows($conn);
 }

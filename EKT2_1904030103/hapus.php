@@ -20,3 +20,17 @@ if (hapus($id) > 0) {
         alert('data gagal dihapus');
         </scrupt>";
 }
+
+$iid = $_GET['id'];
+if (delete($iid) > 0) {
+    echo
+    "<script>
+        alert('data berhasil di hapus');
+        document.location.href = 'index.php';
+        </scrupt>";
+} else {
+    echo
+    "<script>
+        alert('data gagal dihapus');
+        </scrupt>";
+}

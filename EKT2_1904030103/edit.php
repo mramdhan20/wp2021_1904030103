@@ -1,24 +1,24 @@
 <?php
-date_default_timezone_get("Asia/Jakarta");
+//date_default_timezone_get("Asia/Jakarta");
 
 require 'function.php';
 
 $id = $_GET['id'];
 $camaba = query("SELECT * FROM calon_mhs WHERE id = $id");
-// var_dump($camaba['nama']);
 
 if (isset($_POST['edit'])) {
     if (edit($_POST) > 0) {
         echo
         "<script>
-        alert('data berhasil di edit');
-        document.location.href = 'index.php';
-        </scrupt>";
-    } else
+    alert('data berhasil di edit');
+    document.location.href = 'index.php';
+    </script>";
+    } else {
         echo
         "<script>
-        alert('data gagal di edit');
-        </scrupt>";
+    alert('data gagal di edit');
+    </script>";
+    }
 }
 
 
